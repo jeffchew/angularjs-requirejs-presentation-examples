@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/accordion.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="accordion">
+
+<div class="fls-content">
+    <accordion data-close-others="true">
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 1</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 2</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 3</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+    </accordion>
+</div>
+
+<script src="js/vendor/require.js" data-main="js/main"></script>
+
+</body>
+</html>

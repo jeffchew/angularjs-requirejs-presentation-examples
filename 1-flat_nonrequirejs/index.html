@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/accordion.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="myApp">
+
+<div class="fls-content">
+    <accordion data-close-others="true">
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 1</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 2</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+
+        <div data-accordion-pane class="fls-accordion-pane">
+            <div data-accordion-heading>
+                <h2>My Accordion 3</h2>
+            </div>
+            <div data-accordion-content>
+                My Accordion Content
+            </div>
+        </div>
+    </accordion>
+</div>
+
+
+
+<script id="accordion.html" type="text/ng-template">
+    <div class="rz-accordion" data-ng-class="{'desktop-disabled' : desktopDisabled, 'mobile-disabled' : mobileDisabled}" data-ng-transclude></div>
+</script>
+
+<script id="accordion-controls.html" type="text/ng-template">
+    <div>
+        <a href="#" class="rz-expand" data-ng-click="expandAll()" data-ng-show="!isExpanded || !toggle">Expand All</a>
+        <a href="#" class="rz-collapse" data-ng-click="collapseAll()" data-ng-show="isExpanded || !toggle">Collapse All</a>
+    </div>
+</script>
+
+<script id="accordion-pane.html" type="text/ng-template">
+    <div class="rz-accordion-pane">
+        <div class="rz-accordion-header" data-accordion-heading-transclude data-ng-click="toggleOpen()" data-ng-class="{'active' : isOpen}"></div>
+        <div class="rz-accordion-content" data-accordion-content-transclude data-ng-class="{'active' : isOpen}" data-ng-transclude></div>
+    </div>
+</script>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/angular.js"></script>
+<script src="js/vendor/angular-animate.js"></script>
+<script src="js/myapp.js"></script>
+
+</body>
+</html>
