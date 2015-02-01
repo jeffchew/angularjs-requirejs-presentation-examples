@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/accordion.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="fls-content" data-ng-controller="myPageController" data-ng-cloak>
+    <h1>{{myAwesomeHeading}}</h1>
+
+    <accordion data-close-others="true">
+        <div data-accordion-pane class="fls-accordion-pane" data-ng-repeat="accordionItem in accordionContent">
+            <div data-accordion-heading>
+                <h2>{{accordionItem.heading}}</h2>
+            </div>
+            <div data-accordion-content>
+                {{accordionItem.description}}
+            </div>
+        </div>
+    </accordion>
+</div>
+
+<script>
+    var $w = window;
+    $w.$myapp = $w.$myapp || {};
+    $w.$myapp.deps = $w.$myapp.deps || [];
+    $w.$myapp.deps.push('modules/myPage/app');
+
+    $w.$myapp.ngApps = $w.$myapp.ngApps || [];
+    $w.$myapp.ngApps.push('myPage');
+</script>
+
+<script src="js/vendor/require.js" data-main="js/main"></script>
+
+</body>
+</html>
