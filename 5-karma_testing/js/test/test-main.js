@@ -47,6 +47,8 @@ requirejs.config({
     // ask Require.js to load these files (all our tests)
     deps: tests,
 
+    waitSeconds: 8,
+
     // start test run, once Require.js is done
     callback: function(){
         "use strict";

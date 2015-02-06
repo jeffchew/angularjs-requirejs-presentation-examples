@@ -7,6 +7,9 @@ module.exports = function(grunt) {
         karma: {
             unit: {
                 configFile: 'js/test/karma.conf.js'
+            },
+            browserstack: {
+                configFile: 'js/test/karma.browserstack.conf.js'
             }
         }
     });
