@@ -1,0 +1,74 @@
+{
+  "name": "angular-razorfish-presentation",
+  "version": "1.0.0",
+  "description": "Example project setup for Karma/AngularJS unit testing via Gulp/Browserify",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Razorfish",
+  "license": "MIT",
+  "root": "./src",
+  "main": "./src/js/",
+  "projectRoot": "./",
+  "dependencies": {},
+  "engines": {
+    "node": "latest",
+    "npm": "latest"
+  },
+  "devDependencies": {
+    "brfs": "^1.3.0",
+    "browserify": "^8.1.3",
+    "browserify-global-shim": "^1.0.0",
+    "browserify-shim": "^3.8.2",
+    "glob": "^4.4.1",
+    "gulp": "^3.8.10",
+    "gulp-karma": "0.0.4",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.1",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-browserify": "^3.0.1",
+    "karma-jasmine": "^0.3.4",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "stringify": "^3.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "stringify",
+        "browserify-shim"
+      ]
+    ],
+    "extensions": [
+      ".html",
+      ".json"
+    ],
+    "insertGlobals": true,
+    "detectGlobals": true,
+    "debug": true
+  },
+  "browser": {
+    "angular": "./src/js/vendor/angular.js",
+    "angular-mocks": "./src/js/vendor/angular-mocks.js",
+    "jquery": "./src/js/vendor/jquery-shim.js",
+    "lodash": "./src/js/vendor/lodash.min.js",
+    "ngAnimate": "./src/js/vendor/angular-animate.js"
+  },
+  "browserify-shim": {
+    "angular": "angular",
+    "lodash": "_",
+    "angular-mocks": "angular-mocks",
+    "jquery": "global:jQuery",
+    "ngAnimate": {
+      "exports": "ngAnimate",
+      "depends": [
+        "angular"
+      ]
+    },
+    "jasmine-jquery": "global:jasmine-jquery"
+  }
+}
