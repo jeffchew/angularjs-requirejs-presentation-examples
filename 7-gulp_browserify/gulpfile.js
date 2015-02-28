@@ -38,12 +38,3 @@ gulp.task('js', function () {
 
     return bundle();
 });
-
-gulp.task('inject-deps', function () {
-    var target = gulp.src('./www/index.html');
-    // It's not necessary to read the files (will speed up things), we're only after their paths:
-    var sources = gulp.src(['./www/js/libs/bower/**/*min.js'], {read: false});
-
-    return target.pipe(inject(sources))
-        .pipe(gulp.dest('./www'));
-});
