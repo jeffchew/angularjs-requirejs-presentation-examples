@@ -1,12 +1,9 @@
-define([
-    'jquery',
-    'angular',
-    'text!./../data/accordion.json',
-    'angular-mocks',
-    'jasmine-jquery',
-    'modules/myPage/app'
-], function($, angular, accordionData) {
-    "use strict";
+'use strict';
+
+require('./../../../myPage');
+var accordionData = require('./../data/accordion.json');
+
+(function(){
 
     var $scope,
         $q,
@@ -21,13 +18,13 @@ define([
                 getFrameworks: function(){
                     var d = $q.defer();
 
-                    d.resolve(JSON.parse(accordionData));
+                    d.resolve(accordionData);
 
                     return d.promise;
                 }
             };
 
-            spyOn(frameworksServiceMock, "getFrameworks").andCallThrough();
+            spyOn(frameworksServiceMock, "getFrameworks").and.callThrough();
         }
 
         function createController(){
@@ -39,12 +36,17 @@ define([
             $scope.$digest();
         }
 
-        beforeEach(module('myPage', function($provide){
-            $provide.value('$window', {
-                location: {},
-                document: window.document
-            });
-        }));
+        beforeEach(function(){
+            configTest.bootstrapModule("myPage", [
+                {
+                    name: '$window',
+                    data: {
+                        location: {},
+                        document: window.document
+                    }
+                }
+            ]);
+        });
 
         beforeEach(inject(function($injector) {
             $scope = $injector.get('$rootScope');
@@ -63,4 +65,4 @@ define([
 
     });
 
-});
+})();

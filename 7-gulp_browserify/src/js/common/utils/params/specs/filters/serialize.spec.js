@@ -1,15 +1,14 @@
-define([
-    'jquery',
-    'angular',
-    'angular-mocks',
-    'jasmine-jquery',
-    'common/utils/params/app'
-], function($) {
-    "use strict";
+"use strict";
+
+require('./../../../params');
+
+(function(){
 
     describe('Serialize filter:', function() {
 
-        beforeEach(module('params'));
+        beforeEach(function(){
+            configTest.bootstrapModule("params");
+        });
 
         it('should have a range filter that produces an array of numbers',
             inject(function($filter) {
@@ -22,5 +21,5 @@ define([
 
 
 
-});
+})();
 

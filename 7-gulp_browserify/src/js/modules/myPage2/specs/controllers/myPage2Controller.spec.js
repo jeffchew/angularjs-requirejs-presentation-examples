@@ -1,12 +1,8 @@
-define([
-    'jquery',
-    'angular',
-    'angular-mocks',
-    'jasmine-jquery',
-    'modules/myPage2/app'
-], function() {
-    "use strict";
+'use strict';
 
+require('./../../../myPage2');
+
+(function(){
     var $scope,
         $controller,
         $window,
@@ -22,14 +18,19 @@ define([
             $scope.$digest();
         }
 
-        beforeEach(module('myPage2', function($provide){
-            $provide.value('$window', {
-                location: {
-                    search: '?queryValue=something'
-                },
-                document: window.document
-            });
-        }));
+        beforeEach(function(){
+            configTest.bootstrapModule("myPage2", [
+                {
+                    name: '$window',
+                    data: {
+                        location: {
+                            search: '?queryValue=something'
+                        },
+                        document: window.document
+                    }
+                }
+            ]);
+        });
 
         beforeEach(inject(function($injector) {
             $scope = $injector.get('$rootScope');
@@ -44,4 +45,4 @@ define([
 
     });
 
-});
+})();

@@ -1,26 +1,30 @@
-define([
-    'jquery',
-    'angular',
-    'angular-mocks',
-    'jasmine-jquery',
-    'common/utils/params/app'
-], function($) {
-    "use strict";
+"use strict";
+
+require('./../../../params');
+
+(function(){
 
     describe('Params factory:', function() {
 
         var paramsFactory;
 
-        beforeEach(module('params', function($provide){
-            $provide.value('$window', {
-                location: {
-                    search: '?a=1&b=2&c=3'
+        beforeEach(function(){
+            configTest.bootstrapModule("params", [
+                {
+                    name: '$window',
+                    data: {
+                        location: {
+                            search: '?a=1&b=2&c=3'
+                        },
+                        document: window.document
+                    }
                 },
-                document: window.document
-            });
-
-            $provide.value('$document', [{}]);
-        }));
+                {
+                    name: '$document',
+                    data: [{}]
+                }
+            ]);
+        });
 
         beforeEach(inject(function($injector) {
             paramsFactory = $injector.get('params');
@@ -45,4 +49,4 @@ define([
 
 
 
-});
+})();

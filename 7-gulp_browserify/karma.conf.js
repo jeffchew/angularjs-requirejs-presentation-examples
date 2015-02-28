@@ -26,14 +26,15 @@ module.exports = function (config) {
             './src/js/vendor/angular.js',
             './src/js/vendor/angular-mocks.js',
             './src/js/vendor/angular-animate.js',
-            './www/js/modules/config-test.js',
-            './www/js/modules/**/*.spec.js',
-            './www/js/common/**/*.spec.js'
+            './src/js/modules/config-test.js',
+            './src/js/modules/**/*.spec.js',
+            './src/js/common/**/*.spec.js'
         ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            './src/js/common/**/*.spec.js': ['browserify'],
             './src/js/modules/**/*.spec.js': ['browserify']
         },
 
